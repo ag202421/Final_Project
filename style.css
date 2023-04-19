@@ -107,6 +107,12 @@ figure{
     width: 50%;
     margin-bottom: 100px;
 }
+.leaflet-tile{
+    border:none
+}
+.leaflet-zoom-animated{
+    border: none;
+}
 @keyframes Right {
     0% {
         transform: translateX(0);

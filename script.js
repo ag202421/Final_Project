@@ -1,4 +1,6 @@
+
 let myMap = null;
+
 function initializeMap() {
   if (myMap) {
     return myMap;
@@ -13,8 +15,9 @@ function initializeMap() {
   }
 
   myMap = L.map(mapElement,{
-    zoom:19
+    attributionControl:false,
   });
+
 
   const tectonicPlatesUrl =
     "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_plates.json";
@@ -31,29 +34,49 @@ function initializeMap() {
         },
       });
 
-      const baseLayer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        attribution: 'Base Map &copy; <a href="http://www.openstreetmap.org">OpenStreetMap</a>',
-      });
-
       const bounds = tectonicPlatesLayer.getBounds();
-      myMap.fitBounds(bounds);
-
+      const maxBounds = bounds.pad(0);
+      myMap.setMaxBounds(maxBounds);
+      myMap.fitBounds(bounds).setZoom(1.45);
       tectonicPlatesLayer.addTo(myMap);
-      baseLayer.addTo(myMap);
-      const tectonicPlatesAttribution = 'Tectonic Plate Boundaries &copy; <a href="https://github.com/fraxen/tectonicplates">Fraxen</a>';
-      tectonicPlatesLayer.setAttribution(tectonicPlatesAttribution);
-    });
 
+      const tectonicPlatesAttribution =
+        'Tectonic Plate Boundaries &copy; <a href="https://github.com/fraxen/tectonicplates">Fraxen</a>';
+      if (myMap.attributionControl) {
+        myMap.attributionControl.addAttribution(tectonicPlatesAttribution);
+      }
+    })
+    .catch((error) => {});
+
+  const baseLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+  });
+  baseLayer.addTo(myMap);
+  const earthquakeUrl = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2020-01-01&endtime=2020-01-02";
+  fetch(earthquakeUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      const markers = L.markerClusterGroup();
+      data.features.forEach((feature) => {
+        const coords = feature.geometry.coordinates.slice(0, 2).reverse(); 
+        const magnitude = feature.properties.mag;
+        const popupText = `<strong>Magnitude:</strong> ${magnitude}`;
+        const marker = L.marker(coords).bindPopup(popupText);
+        markers.addLayer(marker);
+      });
+      markers.addTo(myMap);
+    })
+    .catch((error) => {});
+    
+  if (typeof L.grid === 'function') {
+    L.grid().remove();
+  }
+  
   return myMap;
 }
-
 if (document.getElementsByClassName("map-container").length > 0) {
   initializeMap();
 }
-
-
-
 window.addEventListener("scroll", function () {
   const banner = document.getElementById("banner");
   const line = document.getElementById("line");
