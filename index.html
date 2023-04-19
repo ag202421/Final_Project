@@ -6,6 +6,10 @@
     <title>Earthquakes Home Page</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 </head>
 <body>
     <div id ='banner'>
@@ -21,13 +25,12 @@
         <div id="line"></div>
         </div>
     </div>
-<div id ="content">
-    <h1>Home Page</h1>
-    <h3> Earthquakes: An Exploration into the Regions that are Impacted</h3>
-    <h5>Visualization</h5>
-    <p> Visualization here...</p> <p> Visualization here...</p> <p> Visualization here...</p> <p> Visualization here...</p> <p> Visualization here...</p> <p> Visualization here...</p>
-    <p> Visualization here...</p> <p> Visualization here...</p> <p> Visualization here...</p> <p> Visualization here...</p> <p> Visualization here...</p>
-    <p> Visualization here...</p> <p> Visualization here...</p> <p> Visualization here...</p> <p> Visualization here...</p>
+    <div id ="content">
+        <h1>Home Page</h1>
+        <h3> Earthquakes: An Exploration into the Regions that are Impacted</h3>
+        <h5>Visualization</h5>
+        <div id="map" class="map-container"></div>
+    </div>
 </div>
 <script src="script.js"></script>
 </body>
