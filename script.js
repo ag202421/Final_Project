@@ -60,7 +60,7 @@ function initializeMap() {
       data.features.forEach((feature) => {
         const coords = feature.geometry.coordinates.slice(0, 2).reverse(); 
         const magnitude = feature.properties.mag;
-        const popupText = `<strong>Magnitude:</strong> ${magnitude}`;
+        const popupText = `<strong>Magnitude:</strong> ${magnitude} &nbsp; `
         const marker = L.marker(coords).bindPopup(popupText);
         markers.addLayer(marker);
       });
