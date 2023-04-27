@@ -47,25 +47,25 @@
         <p>My name is Alexis Goldberg.</p>
         <p> I am an Information Science and Criminal Justice major at the University of Maryland, College Park. </p>
         <p>In my free time I love reading books and watching movies!</p>
-        <br><br><br>
+        <br><br><br><br><br>
         <a href="https://github.com/alexisgoldberg">Feel free to check out my Github here</a>
     </div>
-    <script>
-        window.addEventListener("scroll", function () {
-        const banner = document.getElementById("banner");
-        const line = document.getElementById("line");
-        const bannerHt = banner.offsetHeight;
-        const pageHt = document.body.offsetHeight;
-        const scrollPos = window.scrollY;
-        const scrollPer = scrollPos / (pageHt - bannerHt);
-        const lineW = scrollPer * banner.offsetWidth;
-        const maxScroll = pageHt - window.innerHeight;
+<script>
+    window.addEventListener("scroll", function () {
+    const banner = document.getElementById("banner");
+    const line = document.getElementById("line");
+    const bannerHt = banner.offsetHeight;
+    const pageHt = document.body.offsetHeight;
+    const scrollPos = window.scrollY;
+    const scrollPer = scrollPos / (pageHt - bannerHt);
+    const lineW = scrollPer * banner.offsetWidth;
+    const maxScroll = pageHt - window.innerHeight;
+    line.style.width = lineW + "px";
+    if (scrollPos >= maxScroll) {
+        line.style.width = banner.offsetWidth + "px";
+    } else {
         line.style.width = lineW + "px";
-        if (scrollPos >= maxScroll) {
-          line.style.width = banner.offsetWidth + "px";
-        } else {
-          line.style.width = lineW + "px";
         }
-      });</script>
+});</script>
 </body>
 </html>
