@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
     crossorigin=""/>
-    <link rel="import" href="https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2020-01-01&endtime=2020-01-02"/>
+    <link rel="import" href="https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2023-04-01&endtime=2023-04-04"/>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
     <script src="https://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 </head>
@@ -31,9 +31,31 @@
         <h1>Home Page</h1>
         <h3> Earthquakes: An Exploration into the Regions that are Impacted</h3>
         <h5>Visualization</h5>
+        <div>
+        <label id="magnitude-filter-label" for="magnitude-filter">Filter earthquakes by magnitude:</label>
+        <select id="magnitude-filter" onchange="filterMarkers(this.value, markers)">
+            <option value="">All Magnitudes</option>
+            <option value="-1.0">Negative magnitude</option>
+            <option value="0.0">0.0 </option>
+            <option value="1.0">1.0</option>
+            <option value="2.0">2.0</option>
+            <option value="3.0">3.0</option>
+            <option value="4.0">4.0</option>
+            <option value="5.0">5.0</option>
+            <option value="6.0">6.0</option>
+            <option value="7.0">7.0</option>
+            <option value="8.0">8.0</option>
+            <option value="9.0">9.0</option>
+            <option value="10.0">10.0</option>
+            </select>
+
+            <br>  <br> <br> <br> <br> <br> <br>
+        </div>
         <div id="map" class="map-container"></div>
     </div>
-</div>
+    <div id="html">
+        <div id="special-note">*Note: The size of the dataset is enormous, so I only included data from 4/1/23-4/4/23 </div>
+    </div>
 <script src="script.js"></script>
 </body>
 </html>
