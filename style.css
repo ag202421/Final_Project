@@ -5,7 +5,7 @@ a{
     background-color: black;
     color:rgb(198, 255, 220) ;
     padding: 10px;
-    font-family:Georgia, 'Times New Roman', Times, serif
+    font-family:Arial, Helvetica, sans-serif;
 }
 #banner{
     background-color: black;
@@ -72,6 +72,10 @@ h2{
     font-family: Arial, Helvetica, sans-serif;
     font-size: medium;
 }
+#refresh-label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+}
 img {
     float: right;
     top: 0;
@@ -113,6 +117,15 @@ figure{
     font-size: x-small;
     font-style: italic;
 }
+#refresh{
+    background-color:black;
+    color: rgb(198, 255, 220) ;
+    border: 1px solid transparent;
+    border-radius: .75rem;
+    font-family:Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    font-weight: bold;
+    }
 @keyframes Right {
     0% {
         transform: translateX(0);
