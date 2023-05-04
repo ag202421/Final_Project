@@ -5,7 +5,7 @@ The name of my project is Earthquakes: An Exploration into the Regions that are 
 The target browser for my project is Google Chrome Version 113.0.5672.63+.
 
 ### What the Code Does
-My code takes tectonic plate boundaries (from geoJSON files) and puts it over a leaflet map. I also populate markers from my API. Additionally, I added a drop down menu and a refresh button. On the back end, I initially load data from the API and store it locally. Then, I filter the list from localStorage and output the filtered list. For the refresh button, I fetch directly from the API, which resets the filter and stores the new fetch locally.
+My code takes tectonic plate boundaries (from geoJSON files) and puts it over a leaflet map. I also populate markers from my API. Additionally, I added a drop down menu and a refresh button. On the back end, I initially load data from the API and store it locally. In the event of a page refresh, I keep the data from the loaded storage. Then, I filter the list from localStorage and output the filtered list. For the refresh button, I fetch directly from the API, which resets the filter and stores the new fetch locally.
 
 ### Project Description
 I used this API: https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2023-04-01&endtime=2023-04-04. <br>
