@@ -130,24 +130,23 @@ magnitudeFilter.addEventListener("change", function () {
   console.log('Filtered data:',filteredData);
 });
 
-
 function saveEarthquakeData(data) {
   localStorage.removeItem('earthquakeData')
   localStorage.setItem('earthquakeData', JSON.stringify(data));
-  console.log('Initial Data:', JSON.parse(localStorage.getItem('earthquakeData')));
+  console.log('New Data:', JSON.parse(localStorage.getItem('earthquakeData')));
 }
-
 function clearMarkers(markers) {
   markers.eachLayer(function (marker) {
     marker.removeFrom(myMap);
   });
 }
 function refreshData() {
-  localStorage.clear()
+  localStorage.clear();
+  clearMarkers(earthquakeMarkers);
+  earthquakeData = [];
   fetch(earthquakeUrl)
     .then((response) => response.json())
     .then((data) => {
-      const newEarthquakeData = [];
       data.features.forEach((feature) => {
         const coords = feature.geometry.coordinates.slice(0, 2).reverse();
         const magnitude = feature.properties.mag;
@@ -155,15 +154,17 @@ function refreshData() {
         const marker = L.marker(coords).bindPopup(popupText);
         marker.magnitude = magnitude;
         earthquakeMarkers.addLayer(marker);
-        newEarthquakeData.push({
+  
+        earthquakeData.push({
           coordinates: coords,
           mag: magnitude,
         });
       });
-      localStorage.setItem('newEarthquakeData', JSON.stringify(data));
-      console.log('Refreshed Data:',newEarthquakeData);
+      saveEarthquakeData(earthquakeData);
+      earthquakeMarkers.addTo(myMap);
     });
 }
+
 const refresh = document.getElementById("refresh");
 refresh.addEventListener("click", refreshData);
 initializeMap();
