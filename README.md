@@ -1,8 +1,8 @@
 # Final_Project
 ### Project Information
 My project can be found at the following link: https://alexisgoldberg.github.io/Final_Project/
-The name of my project is Earthquakes: An Exploration into the Regions that are Impacted
-The target browser for my project is Google Chrome Version 113.0.5672.63+
+The name of my project is Earthquakes: An Exploration into the Regions that are Impacted.
+The target browser for my project is Google Chrome Version 113.0.5672.63+.
 
 ### What the Code Does
 My code takes tectonic plate boundaries (from geoJSON files) and puts it over a leaflet map. I also populate markers from my API. Additionally, I added a drop down menu and a refresh button. On the back end, I initially load data from the API and store it locally. Then, I filter the list from localStorage and output the filtered list. For the refresh button, I fetch directly from the API, which resets the filter and stores the new fetch locally.
