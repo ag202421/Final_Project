@@ -1,2 +1,1 @@
-# Final_Project: INST 377
-https://alexisgoldberg.github.io/Final_Project/
+My project can be found at the following link: https://alexisgoldberg.github.io/Final_Project/. <br>
