@@ -60,30 +60,43 @@ function initializeMap() {
   baseLayer.addTo(myMap);
   const initialMarkers = L.layerGroup();
   initialMarkers.addTo(myMap);
-  fetch(earthquakeUrl)
-  .then((response) => response.json())
-  .then((data) => {
-    data.features.forEach((feature) => {
-      const coords = feature.geometry.coordinates.slice(0, 2).reverse();
-      const magnitude = feature.properties.mag;
-      const popupText = `<strong>Magnitude:</strong> ${magnitude} &nbsp; `;
-      const marker = L.marker(coords).bindPopup(popupText);
-      marker.magnitude = magnitude;
-      earthquakeMarkers.addLayer(marker);
-
-      earthquakeData.push({
-        coordinates: coords,
-        mag: magnitude,
-      });
-    });
-    saveEarthquakeData(earthquakeData);
-    earthquakeMarkers.addTo(myMap);
-  });
   const magnitudeFilter = document.getElementById("magnitude-filter");
   magnitudeFilter.addEventListener("change", function () {
     filterMarkers(magnitudeFilter.value, earthquakeMarkers);
   });
-
+  if (localStorage.getItem('earthquakeData')) {
+    console.log('Stored Data:',localStorage)
+    const storedEarthquakeData = JSON.parse(localStorage.getItem('earthquakeData'));
+    storedEarthquakeData.forEach((earthquake) => {
+      const coords = earthquake.coordinates;
+      const magnitude = earthquake.mag;
+      const popupText = `<strong>Magnitude:</strong> ${magnitude} &nbsp; `;
+      const marker = L.marker(coords).bindPopup(popupText);
+      marker.magnitude = magnitude;
+      earthquakeMarkers.addLayer(marker);
+    });
+    earthquakeMarkers.addTo(myMap);
+  } else {
+    fetch(earthquakeUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        data.features.forEach((feature) => {
+          const coords = feature.geometry.coordinates.slice(0, 2).reverse();
+          const magnitude = feature.properties.mag;
+          const popupText = `<strong>Magnitude:</strong> ${magnitude} &nbsp; `;
+          const marker = L.marker(coords).bindPopup(popupText);
+          marker.magnitude = magnitude;
+          earthquakeMarkers.addLayer(marker);
+  
+          earthquakeData.push({
+            coordinates: coords,
+            mag: magnitude,
+          });
+        });
+        saveEarthquakeData(earthquakeData);
+        earthquakeMarkers.addTo(myMap);
+      });
+  }
   if (typeof L.grid === 'function') {
     L.grid();
   }
@@ -119,7 +132,7 @@ magnitudeFilter.addEventListener("change", function () {
 
 
 function saveEarthquakeData(data) {
-  localStorage.clear()
+  localStorage.removeItem('earthquakeData')
   localStorage.setItem('earthquakeData', JSON.stringify(data));
   console.log('Initial Data:', JSON.parse(localStorage.getItem('earthquakeData')));
 }
@@ -148,11 +161,9 @@ function refreshData() {
         });
       });
       localStorage.setItem('newEarthquakeData', JSON.stringify(data));
-      console.log('Initial Data:', JSON.parse(localStorage.getItem('newEarthquakeData')));
       console.log('Refreshed Data:',newEarthquakeData);
     });
 }
-
 const refresh = document.getElementById("refresh");
 refresh.addEventListener("click", refreshData);
 initializeMap();
