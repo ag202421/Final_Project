@@ -8,7 +8,7 @@ The target browser for my project is Google Chrome Version 113.0.5672.63+
 My code takes tectonic plate boundaries (from geoJSON files) and puts it over a leaflet map. I also populate markers from my API. Additionally, I added a drop down menu and a refresh button. On the back end, I initially load data from the API and store it locally. Then, I filter the list from localStorage and output the filtered list. For the refresh button, I fetch directly from the API, which resets the filter and stores the new fetch locally.
 
 ### Project Description
-I used this API: "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2023-04-01&endtime=2023-04-04
+I used this API: https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2023-04-01&endtime=2023-04-04
 I used an image and a leaflet.js map to visualize the data.
 The tectonic boundary plates are found at: https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_plates.json
 I also used this library for the markers: https://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster.js
