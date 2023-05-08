@@ -11,7 +11,6 @@ My code takes tectonic plate boundaries (from geoJSON files) and puts it over a 
 I used this API: https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2023-04-01&endtime=2023-04-04. <br>
 I used an image and a leaflet.js map to visualize the data. 
 The tectonic boundary plates are found at: https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_plates.json. <br>
-I also used this library for the markers: https://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster.js. <br>
 You can find the JS leaflet library here: https://unpkg.com/leaflet@1.9.3/dist/leaflet.js. <br>
 In addition, I used the css frameworks fontawesome and leaflet.js to make my design more professional.  
 The fontawesome version is 6.4.0, you can find it here: https://use.fontawesome.com/releases/v6.4.0/css/all.css. <br>
