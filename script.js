@@ -1,6 +1,6 @@
 let myMap = null;
 let earthquakeMarkers = L.layerGroup();
-let markers = L.markerClusterGroup();
+let markers = L.layerGroup();
 
 let earthquakeData = [];
 const earthquakeUrl ="https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2023-04-01&endtime=2023-04-04";
@@ -135,8 +135,8 @@ function saveEarthquakeData(data) {
   localStorage.setItem('earthquakeData', JSON.stringify(data));
   console.log('New Data:', JSON.parse(localStorage.getItem('earthquakeData')));
 }
-function clearMarkers(markers) {
-  markers.eachLayer(function (marker) {
+function clearMarkers(earthquakeMarkers) {
+  earthquakeMarkers.eachLayer(function (marker) {
     marker.removeFrom(myMap);
   });
 }
