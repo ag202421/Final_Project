@@ -1,0 +1,136 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+a{
+    background-color: black;
+    color:rgb(198, 255, 220) ;
+    padding: 10px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+#banner{
+    background-color: black;
+    color: white;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0px 5px 12px rgba(0,0,0,0.2);
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left:0;
+    right:0;
+}
+.banner_linker{
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 20px;
+    height:100%;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.banner_text{
+    font-size:15px;
+    margin-top: 5px;
+    text-align: center;
+}
+.symbol {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+h1{
+    margin-top: 60px;
+}
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+}
+#content{
+    background-color: white;
+    padding: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-top: 50px;
+    padding-bottom: 300px;
+    color:black;
+    height: 100vh;
+    width: 100vw;
+}
+#line{
+    position:absolute;
+    bottom: 0;
+    height: 3px;
+    left: 0;
+    width:100%;
+    background-color: white;
+    z-index: -1;
+}
+#magnitude-filter-label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+}
+#refresh-label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+}
+img {
+    float: right;
+    top: 0;
+    right: 0;
+    max-width: 50%;
+    width: 400px;
+    height: 350px;
+    border: 3px solid black;
+  }
+figure{
+    float:right;
+    max-width: 50%;
+    margin-bottom:25px;
+    margin-left: 25px;
+    position: relative;
+
+}
+.img-capt{
+    position:absolute;
+    bottom:-25px;
+    right: 0;
+    font-size:xx-small;
+}
+#map {
+    position: absolute;
+    transform: translateX(50%);
+    height: 600px;
+    width: 50%;
+    margin-bottom: 100px;
+}
+.leaflet-tile{
+    border:none
+}
+.leaflet-zoom-animated{
+    border: none;
+}
+#special-note{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-small;
+    font-style: italic;
+}
+#refresh{
+    background-color:black;
+    color: rgb(198, 255, 220) ;
+    border: 1px solid transparent;
+    border-radius: .75rem;
+    font-family:Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    font-weight: bold;
+    }
+@keyframes Right {
+    0% {
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
