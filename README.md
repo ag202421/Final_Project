@@ -24,7 +24,7 @@ The leaflet.css version is 1.9.3, you can find it here: https://unpkg.com/leafle
 2. Go to the following link to access my project: https://alexisgoldberg.github.io/Final_Project/. 
 3. Once the page has loaded, you should be able to see a leaflet map with markers indicating earthquake magnitudes.
 4. You can use the dropdown menu to filter the earthquakes based on magnitudes.
-5. Clicking the "Refresh" button will fetch the latest earthquake data from the API and reset the filter.
+5. Clicking the "Refresh" button will fetch the latest earthquake data from the API and reset the filter. <br>
 *Note that this project uses an API to fetch earthquake data, so an internet connection is required to run it.*
 ### Acknowledgements
 Thank you to all the programmers who made the frameworks and libraries, this would not be possible without your effort.  
