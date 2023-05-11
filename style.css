@@ -82,26 +82,21 @@ h2{
     font-size: medium;
 }
 img {
-    float: right;
-    top: 0;
-    right: 0;
-    max-width: 50%;
+    margin-left: auto;
     width: 400px;
     height: 350px;
     border: 3px solid black;
-  }
-figure{
-    float:right;
-    max-width: 50%;
-    margin-bottom:25px;
-    margin-left: 25px;
+    position: absolute;
+    top: -40px;
+    left: 1000px;
+}
+.container {
     position: relative;
-
 }
 .img-capt{
     position:absolute;
     bottom:-25px;
-    right: 0;
+    right: 30px;
     font-size:xx-small;
 }
 #map {
