@@ -2,7 +2,7 @@
 ### Introduction
 Hello, and welcome. This project works with tectonic plate and earthquake data to explore if there is a relationship between the two.
 ### Project Information
-My project can be found at the following link: https://alexisgoldberg.github.io/Final_Project/. <br>
+My project can be found at the following link: https://ag202421.github.io/Final_Project/. <br>
 The name of my project is Earthquakes: An Exploration into the Regions that are Impacted.
 The target browser for my project is Google Chrome Version 113.0.5672.63+ (The newer the version, the better).
 ### What the Code Does
