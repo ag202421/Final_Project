@@ -21,7 +21,7 @@ The fontawesome version is 6.4.0, you can find it here: https://use.fontawesome.
 The leaflet.css version is 1.9.3, you can find it here: https://unpkg.com/leaflet@1.9.3/dist/leaflet.css. <br>
 ### Running the Project
 1. Make sure that you have the latest version of Google Chrome installed on your computer.
-2. Go to the following link to access my project: https://alexisgoldberg.github.io/Final_Project/. 
+2. Go to the following link to access my project: [https://alexisgoldberg.github.io/Final_Project/](https://ag202421.github.io/Final_Project/). 
 3. Once the page has loaded, you should be able to see a leaflet map with markers indicating earthquake magnitudes.
 4. You can use the dropdown menu to filter the earthquakes based on magnitudes.
 5. Clicking the "Refresh" button will fetch the latest earthquake data from the API and reset the filter. <br>
